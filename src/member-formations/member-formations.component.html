@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+  
+        <h2 class="mb-3">Liste des formations</h2>
+        <input type="text" [(ngModel)]="searchText" placeholder="Insérer Votre Titre">
+  
+        <button class="btn btn-primary mb-3" (click)="goToAdd()">Ajouter</button>
+      </div>
+  <table class="table table-striped">
+  
+    <thead>
+      <tr>
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Début</th>
+        <th scope="col">Fin</th>
+        <th scope="col">Actions</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let formation of formations | formationFilter: searchText" >
+  
+      <td [ngClass]="{ 'done': formation.done}">{{ formation.titre }}</td>
+      <td [ngClass]="{ 'done': formation.done }">{{ formation.description }}</td>
+      <td [ngClass]="{ 'done': formation.done }">{{ formation.dateDebut | date : "dd/MM/YYYY hh:mm" }}</td>
+      <td [ngClass]="{ 'done': formation.done }">{{ formation.dateFin | date : "dd/MM/YYYY hh:mm"}}</td>
+      <td>
+        <button  class="btn btn-success btn-sm me-1" (click)="markAsDone(formation)" ><i class="bi bi-check-circle-fill"></i></button>
+        <button class="btn btn-primary btn-sm me-1" (click)="getMembersByFormation(formation)"><i class="bi bi-person"></i></button>
+  
+        <button class="btn btn-warning btn-sm me-1" (click)="goToUpdate(formation.id)"> <i class="bi bi-pencil"></i></button>
+        <button class="btn btn-danger btn-sm" (click)="executeDelete(formation.id,memberId)"> <i class="bi bi-trash"></i></button>
+        
+      </td>
+  
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+  
+  

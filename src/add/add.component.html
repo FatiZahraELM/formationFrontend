@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+<div class="card col-md-6 ">
+  <div class="card-body">
+    <h2>Ajouter une formation</h2>
+    <form (ngSubmit)="addFormation()">
+      <div class="mb-3">
+        <label for="titre" class="form-label">Titre:</label>
+    <input type="text" id="titre" class="form-control"  name="titre" [(ngModel)]="titre">
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description:</label>
+    <textarea id="description" name="description" class="form-control" [(ngModel)]="description"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="dateDebut" class="form-label">Date de début:</label>
+    <input type="datetime-local" id="dateDebut" class="form-control"  name="dateDebut" [(ngModel)]="dateDebut">
+  </div>
+  <div class="mb-3">
+    <label for="dateFin" class="form-label">Date de fin:</label>
+    <input type="datetime-local" id="dateFin" class="form-control" name="dateFin" [(ngModel)]="dateFin">
+  </div>
+  <div class="text-end">
+  <button class="btn btn-success" type="submit">Ajouter</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+
+

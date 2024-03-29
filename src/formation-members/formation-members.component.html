@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+  
+        <h2 class="mb-3">Liste des Membres</h2>
+  
+        <button class="btn btn-primary mb-3" (click)="goToAdd()">Ajouter</button>
+      </div>
+  <table class="table table-striped">
+  
+    <thead>
+      <tr>
+        <th scope="col">Prénom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let member of members " >
+  
+      <td >{{ member.firstName}}</td>
+      <td >{{ member.lastName }}</td>
+      <td >{{member.email}}</td>
+      <td>
+        <button  class="btn btn-success btn-sm me-1" (click)="getFormationsByMember(member)" ><i class="bi bi-journal"></i>        </button>
+        <button class="btn btn-warning btn-sm me-1" (click)="goToUpdate(member.member_id)"> <i class="bi bi-pencil"></i></button>
+        <button class="btn btn-danger btn-sm" (click)="executeDelete(formationId,member.member_id!)"> <i class="bi bi-trash"></i></button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+  
+  
