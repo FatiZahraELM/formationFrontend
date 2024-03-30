@@ -12,10 +12,11 @@
       <textarea id="lastName" name="lastName" class="form-control" [(ngModel)]="member.lastName"></textarea>
     </div>
     <div class="mb-3">
-      <label for="dateDebut" class="form-label">Email:</label>
+      <label for="email" class="form-label">Email:</label>
       <input type="email" id="email" class="form-control"  name="email" [(ngModel)]="member.email">
     </div>
-    
+    <input [(ngModel)]="member.formation" name="formationId" type="number" />
+
     <div class="text-end">
     <button class="btn btn-primary" (click)="updateMember()">Enregistrer</button>
   </div>

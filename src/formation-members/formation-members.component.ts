@@ -39,12 +39,12 @@ export class FormationMembersComponent implements OnInit{
     });
   }
 
-  goToAdd():void{
-    this.router.navigate(['members/newMember']);
+  goToAdd(id:any):void{
+    this.router.navigate([`/formations/${id}/members/newMember`]);
 
   }
-  goToUpdate(id:any){
-    this.router.navigate(['members/update/'+id]);
+  goToUpdate(formationId:any,id:any){
+    this.router.navigate([`/formations/${formationId}/members/update/${id}`]);
 
   }
   executeDelete(idFormation: number, idMember: number): void {
@@ -53,7 +53,7 @@ export class FormationMembersComponent implements OnInit{
       this.formationService.deleteFromNote(idFormation, idMember).subscribe(
         () => {
           this.members = this.members.filter(member => member.member_id !== idMember);
-          this.getMembers(); // Refresh the list of members
+          this.router.navigate([`/formations/${idFormation}/members`]); // Refresh the list of members
         },
         error => {
           console.error("Error deleting member:", error);
@@ -63,7 +63,7 @@ export class FormationMembersComponent implements OnInit{
   }
   getFormationsByMember(member: Member): void {
     if (member.member_id !== undefined) {
-        this.memberService.findFormationsByMemberId(member.member_id).subscribe(
+        this.memberService.getFormationByMemberId(member.member_id).subscribe(
             () => {
                 this.router.navigate([`members/${member.member_id}/formations`]);
             },

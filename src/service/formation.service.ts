@@ -41,6 +41,9 @@ export class FormationService {
     return this.http.delete(`${this.apiUrl}/${idFormation}/members/${idMember}`);
   }
 
-  getMembersNotInFormation(){}
+  addMember(formationId:any,member:Member):Observable<void>{
+    return this.http.post<void>(`${this.apiUrl}/${formationId}/members`, member);
+
+  }
 }
  

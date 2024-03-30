@@ -32,11 +32,11 @@ export const routes: Routes = [
         component: UpdateComponent,
     },
     {
-        'path':"members/update/:id",
+        'path':"formations/:id/members/update/:id",
         component: UpdateMemberComponent,
     },
     {
-        'path':"formations/:id1/members/newMember",
+        'path':"formations/:id/members/newMember",
         component: AddMemberToFormationComponent,
     },
     {

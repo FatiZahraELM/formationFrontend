@@ -27,13 +27,14 @@ export class MemberService {
   }
 
   updateMember( member: Member): Observable<void> {
+    
     return this.http.put<void>(`${this.apiUrl}/${member.member_id}`, member);
   }
 
   delete(id: number) {
     return this.http.delete(`${this.apiUrl}/`+id);
   }
-  findFormationsByMemberId(id: number):Observable<Formation[]>{
+  getFormationByMemberId(id: number):Observable<Formation[]>{
     return this.http.get<Formation[]>(`${this.apiUrl}/${id}/formations`);
 
   }

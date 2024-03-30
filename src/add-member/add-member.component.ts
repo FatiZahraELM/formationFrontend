@@ -18,19 +18,19 @@ export class AddMemberComponent {
   firstName: string = '';
   lastName: string = '';
   email: string = '';
+  formation:any=0;
 
   constructor(private memberService: MemberService,private router: Router) { }
 
   addMember(): void {
 
     const formation: Member = {
-      //id: 0, // Add id property
       firstName: this.firstName,
       lastName: this.lastName,
       email: this.email,
+      formation:this.formation
     };
     this.memberService.addMember(formation).subscribe(() => {
-      // Réinitialiser les champs après l'ajout
       this.firstName = '';
       this.lastName = '';
       this.email = '';

@@ -30,7 +30,7 @@ memberId:number=0;
       
       if (id !== null && !isNaN(+id)) {
         this.memberId = +id;
-        this.memberService.findFormationsByMemberId(this.memberId).subscribe(formation => {
+        this.memberService.getFormationByMemberId(this.memberId).subscribe(formation => {
           this.formations = formation;
         });
       } else {

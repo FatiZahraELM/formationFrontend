@@ -63,7 +63,7 @@ export class MembersComponent implements OnInit{
   }
   getFormationsByMember(member: Member): void {
     if (member.member_id !== undefined) {
-        this.memberService.findFormationsByMemberId(member.member_id).subscribe(
+        this.memberService.getFormationByMemberId(member.member_id).subscribe(
             () => {
                 this.router.navigate([`members/${member.member_id}/formations`]);
             },
